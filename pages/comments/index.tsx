@@ -28,6 +28,16 @@ const Comments = () => {
     console.log(data);
   };
 
+  const deleteComment = async (commentId: number) => {
+    const response = await fetch(`/api/comments/${commentId}`, {
+      method: "DELETE",
+    });
+
+    const data = await response.json();
+    console.log(data);
+    fetchComments();
+  };
+
   return (
     <>
       <input
@@ -43,6 +53,7 @@ const Comments = () => {
             <h2>
               {comment.id} {comment.text}
             </h2>
+            <button onClick={() => deleteComment(comment.id)}>Delete</button>
           </div>
         );
       })}
