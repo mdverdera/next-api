@@ -1,4 +1,4 @@
-import comments from "data/comments";
+import comments from "@data/comments";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
